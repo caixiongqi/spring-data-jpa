@@ -53,7 +53,7 @@ public class SpringDataJpaServiceImpl implements SpringDataJpaService {
     }
 
     @Override
-    public Page<User> getUsersByUserName(String userName, String password, Pageable pageable) {
+    public Page<User> getUsersByUserName(final String userName, final String password, Pageable pageable) {
         Specification specification = new Specification<User>() {
             @Override
             public Predicate toPredicate(Root root, CriteriaQuery criteriaQuery, CriteriaBuilder criteriaBuilder) {
