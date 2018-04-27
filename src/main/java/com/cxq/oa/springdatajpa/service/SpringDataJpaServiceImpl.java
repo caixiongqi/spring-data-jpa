@@ -59,7 +59,7 @@ public class SpringDataJpaServiceImpl implements SpringDataJpaService {
             public Predicate toPredicate(Root root, CriteriaQuery criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
                 if (null != userName) {
-                    predicates.add(criteriaBuilder.equal(root.get("userName"), userName));
+                    predicates.add(criteriaBuilder.like(root.get("userName").as(String.class), "%" + userName + "%"));
                 }
                 if (null != password) {
                     predicates.add(criteriaBuilder.equal(root.get("password"), password));

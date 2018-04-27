@@ -23,7 +23,7 @@ public class JpaUtil {
 		}
 		Query countQuery = entityManager.createQuery(countSql, Long.class);
 		Long count = (Long)countQuery.getSingleResult();
-		
+
 		return new PageImpl<T>(result, pageable, count.intValue());
 	}
 }
